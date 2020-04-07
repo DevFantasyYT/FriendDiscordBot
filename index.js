@@ -59,21 +59,6 @@ bot.on("message", async message => {
     if(commands) commands.run(bot,message, arguments);
 });
 
-bot.on("guildMemberAdd", member => {
-
-    var role = member.guild.roles.find("name", "{👨‍💼} Member");
-
-    if(!role) return;
-
-    member.addRole(role);
-
-    const channel = member.guild.channels.find("name", "👋🏼welkom");
-
-    if (!channel) return;
-
-    channel.send(`**Welkom ${member}, op Friend Place!**`);
-
-});
 
 
 bot.login(process.env.token);
