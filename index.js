@@ -33,7 +33,7 @@ bot.on("ready", async () => {
 
     console.log(`${bot.user.username} is online`);
 
-    bot.user.setActivity("Onderhoud", { type: "WATCHING" });
+    bot.user.setActivity("de server", { type: "WATCHING" });
 
 });
 
@@ -61,11 +61,17 @@ bot.on("message", async message => {
 
 bot.on("guildMemberAdd", member => {
 
-    var role = member.guild.roles.find("name", "Geen Lid");
+    var role = member.guild.roles.find("name", "{👨‍💼} Member");
 
     if(!role) return;
 
     member.addRole(role);
+
+    const channel = member.guild.channels.find("name", "👋🏼welkom");
+
+    if (!channel) return;
+
+    channel.send(`**Welkom ${member}, op Friend Place!**`);
 
 });
 
